@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-braintree-applepay" version="0.1.1">
+    <name>IonicKontaktSDK</name>
+    <description>Ionic Kontak.io SDK integration</description>
+    <license>Apache 2.0</license>
+    <keywords>ionic,kontak.io,sdk</keywords>
+    <repo>git@github.com:droolingOnU88/ionic-ibeacon-kontaktsdk.git</repo>
+
+    <preference name="KONTAKT_SDK" />
+
+    <engines>
+      <engine name="cordova-ios" version=">=3.5.0" />
+    </engines>
+
+    <platform name="ios">
+      <js-module src="www/KTKSdk.js" name="KTKSdk">
+        <clobbers target="KTKSdk" />
+      </js-module>
+
+      <config-file target="config.xml" parent="/*">
+        <feature name="KTKSdk">
+            <param name="ios-package" value="CDVKTKSdk"/>
+        </feature>
+      </config-file>
+
+      <framework src="lib/ios/KontaktSDK.framework" custom="true" />
+
+      <hook type="after_plugin_install" src="lib/ios/KontaktSDK.framework/strip-frameworks.sh" />
+    </platform>
+</plugin>
