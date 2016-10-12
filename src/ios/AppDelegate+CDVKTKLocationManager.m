@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "AppDelegate+CDVLocationManager.h"
+#import "AppDelegate+CDVKTKLocationManager.h"
 #import <objc/runtime.h>
 
 @implementation AppDelegate (CDVLocationManager)

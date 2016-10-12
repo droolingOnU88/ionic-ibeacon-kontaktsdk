@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "CDVLocationManager.h"
+#import "CDVKTKLocationManager.h"
 #import "LMLogger.h"
 
 @implementation CDVLocationManager {
