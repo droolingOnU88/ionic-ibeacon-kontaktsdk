@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-braintree-applepay" version="0.1.1">
+        id="ionic-plugin-kontakio-sdk" version="0.1.1">
     <name>IonicKontaktSDK</name>
     <description>Ionic Kontak.io SDK integration</description>
     <license>Apache 2.0</license>
