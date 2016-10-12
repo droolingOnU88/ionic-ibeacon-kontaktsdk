@@ -13,16 +13,70 @@
       <engine name="cordova-ios" version=">=3.5.0" />
     </engines>
 
-    <platform name="ios">
-      <js-module src="www/KTKSdk.js" name="KTKSdk">
-        <clobbers target="KTKSdk" />
-      </js-module>
+    <!-- Third party libraries -->
+    <js-module name="underscorejs" src="www/lib/underscore-min-1.6.js">
+        <runs/>
+    </js-module>
 
-      <config-file target="config.xml" parent="/*">
-        <feature name="KTKSdk">
-            <param name="ios-package" value="CDVKTKSdk"/>
-        </feature>
+    <js-module name="Q" src="www/lib/q.min.js">
+        <runs/>
+    </js-module>
+
+    <!-- Plugin source code: Core -->
+    <js-module name="LocationManager" src="www/LocationManager.js">
+        <!-- see http://cordova.apache.org/docs/en/3.0.0/plugin_ref_spec.md#Plugin%20Specification_js_module_element -->
+        <!-- We have to use clobers but with cordova.plugins.locationManager or if you'd like to merge you need to user merges to make alle objects acessable -->
+        <merges target="cordova.plugins"/>
+    </js-module>
+
+    <js-module name="Delegate" src="www/Delegate.js">
+        <runs/>
+    </js-module>
+
+    <!-- Plugin source code: Model -->
+    <js-module name="Region" src="www/model/Region.js">
+        <runs/>
+    </js-module>
+
+    <js-module name="Regions" src="www/Regions.js">
+        <runs/>
+    </js-module>
+
+    <js-module name="CircularRegion" src="www/model/CircularRegion.js">
+        <runs/>
+    </js-module>
+
+    <js-module name="BeaconRegion" src="www/model/BeaconRegion.js">
+        <runs/>
+    </js-module>
+
+
+    <platform name="ios">
+      <config-file parent="/*" target="config.xml">
+          <feature name="KTKLocationManager">
+              <param name="ios-package" value="CDVKTKLocationManager"/>
+          </feature>
       </config-file>
+
+      <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+          <string>This app would like to scan for iBeacons even when in the background.</string>
+      </config-file>
+      <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+          <string>This app would like to scan for iBeacons while it is in use.</string>
+      </config-file>
+
+
+      <header-file src="src/ios/CDVKTKLocationManager.h"/>
+      <source-file src="src/ios/CDVKTKLocationManager.m"/>
+
+      <header-file src="src/ios/AppDelegate+CDVKTKLocationManager.h"/>
+      <source-file src="src/ios/AppDelegate+CDVKTKLocationManager.m"/>
+
+      <header-file src="src/ios/LMLogger.h"/>
+      <source-file src="src/ios/LMLogger.m"/>
+
+      <framework src="CoreBluetooth.framework" />
+      <framework src="CoreLocation.framework" />
 
       <framework src="lib/ios/KontaktSDK.framework" custom="true" />
 
