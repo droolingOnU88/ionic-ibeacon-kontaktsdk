@@ -7,8 +7,6 @@
     <keywords>ionic,kontak.io,sdk</keywords>
     <repo>git@github.com:droolingOnU88/ionic-ibeacon-kontaktsdk.git</repo>
 
-    <preference name="KONTAKT_SDK" />
-
     <engines>
       <engine name="cordova-ios" version=">=3.5.0" />
     </engines>
