@@ -19,6 +19,7 @@
 
 #import "AppDelegate+CDVKTKLocationManager.h"
 #import <objc/runtime.h>
+#import KontaktSDK
 
 @implementation AppDelegate (CDVLocationManager)
 
@@ -48,6 +49,8 @@
 
 - (BOOL) xxx_application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    Kontakt.setAPIKey("MuWJMeYrWzLJjRjfAovGLvVoROzkoOck");
+    
     BOOL launchedWithoutOptions = launchOptions == nil;
     
     if (!launchedWithoutOptions) {
